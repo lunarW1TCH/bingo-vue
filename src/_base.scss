@@ -1,0 +1,55 @@
+// $primary100: #c9c9c9;
+// $primary200: #adadad;
+// $primary300: #8d8d8d;
+// $primary400: #777777;
+// $primary500: #646464;
+// $primary600: #5e5e5e;
+// $primary700: #4d4d4d;
+// $primary800: #353535;
+// $primary900: #1b1b1b;
+
+// $secondary100: #c9c9c9;
+// $secondary200: #adadad;
+// $secondary300: #8d8d8d;
+// $secondary400: #777777;
+// $secondary500: #646464;
+// $secondary600: #5e5e5e;
+// $secondary700: #4d4d4d;
+// $secondary800: #353535;
+// $secondary900: #1b1b1b;
+
+// $tertiary100: #c9c9c9;
+// $tertiary200: #adadad;
+// $tertiary300: #8d8d8d;
+// $tertiary400: #777777;
+// $tertiary500: #646464;
+// $tertiary600: #5e5e5e;
+// $tertiary700: #4d4d4d;
+// $tertiary800: #353535;
+// $tertiary900: #1b1b1b;
+
+$gray100: #c9c9c9;
+$gray200: #adadad;
+$gray300: #8d8d8d;
+$gray400: #777777;
+$gray500: #646464;
+$gray600: #5e5e5e;
+$gray700: #4d4d4d;
+$gray800: #353535;
+$gray900: #1b1b1b;
+
+// font sizes, to be determined
+// $font-base: 20px;
+// $font-h1: 68px;
+// $font-header: 28px;
+// $font-input: 16px;
+
+// shadows, to be determined
+
+@mixin box-shadow-sharp {
+  -webkit-box-shadow: 4px 4px 0px 0px $gray700;
+  -moz-box-shadow: 4px 4px 0px 0px $gray700;
+  box-shadow: 4px 4px 0px 0px $gray700;
+}
+
+// animations and keyframes, to be determined
