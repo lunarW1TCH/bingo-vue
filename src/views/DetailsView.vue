@@ -45,18 +45,10 @@ const fetchHandler = async () => {
     const bingo = result.data.result;
     fetchedBingo.value = bingo;
 
-    const {
-      name,
-      description,
-      colors,
-      _id,
-      createdAt,
-      updatedAt,
-      __v,
-      ...values
-    } = bingo;
+    const { colors, values } = bingo;
+    const { _id, ...filteredValues } = values;
 
-    bingoValues.value = values;
+    bingoValues.value = filteredValues;
     bingoColors.value = colors;
   } catch (err) {
     error.value = 'No bingo with that ID';

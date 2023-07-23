@@ -24,9 +24,10 @@ export interface BingoValues {
   e3: string;
   e4: string;
   e5: string;
+  _id?: string;
 }
 
-export interface BingoDB extends BingoValues {
+export interface BingoDB {
   name: string;
   createdAt?: string;
   updatedAt?: string;
@@ -39,6 +40,7 @@ export interface BingoDB extends BingoValues {
   _id?: string;
   __v?: number;
   description: string;
+  values: BingoValues;
 }
 
 export const STARTING_STATE: BingoValues = {

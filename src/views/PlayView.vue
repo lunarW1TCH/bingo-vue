@@ -39,19 +39,11 @@ const fetchHandler = async () => {
   const result = await axios.get(`http://localhost:8080/id?id=${bingoId}`);
 
   const bingo = result.data.result as BingoDB;
-  const {
-    colors,
-    _id,
-    __v,
-    name,
-    description,
-    createdAt,
-    updatedAt,
-    ...values
-  } = bingo;
+  const { colors, values } = bingo;
+  const { _id, ...filteredValues } = values;
 
   fetchedBingo.value = bingo;
-  bingoValues.value = values;
+  bingoValues.value = filteredValues;
   bingoColors.value = colors;
 };
 
