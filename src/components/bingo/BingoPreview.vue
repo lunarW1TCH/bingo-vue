@@ -43,6 +43,7 @@ const formColors = inject('formColors') as BingoColors;
 
   &:hover {
     scale: 110%;
+    cursor: pointer;
   }
 }
 </style>

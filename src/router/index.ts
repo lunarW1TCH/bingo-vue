@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import CreateView from '../views/CreateView.vue';
 import SearchView from '../views/SearchView.vue';
 import DetailsView from '../views/DetailsView.vue';
+import PlayView from '../views/PlayView.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/:bingoId',
     name: 'details',
     component: DetailsView,
+  },
+  {
+    path: '/:bingoId/play',
+    name: 'play',
+    component: PlayView,
   },
 ];
 
