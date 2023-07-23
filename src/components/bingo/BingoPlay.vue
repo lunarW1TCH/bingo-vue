@@ -2,7 +2,7 @@
   <div v-if="transformedValues" class="container">
     <div
       class="field"
-      :class="checkedFields[keys[index] as keyof BingoValues] ? 'checked' : null"
+      :class="checkedFields[keys[index] as keyof Omit_id] ? 'checked' : null"
       v-for="(value, index) in transformedValues"
       :key="keys[index]"
       @click="checkHandler(keys[index])"
@@ -18,6 +18,8 @@ import { BingoValues, BINGO_CHECKED_FIELDS } from '@/interfaces/Bingo';
 import { arrayMoveEl, shuffleArray } from '@/helpers/helpers';
 import { onBeforeRouteLeave } from 'vue-router';
 
+type Omit_id = Omit<BingoValues, '_id'>;
+
 const props = defineProps<{
   values: BingoValues;
   colors: {
@@ -32,8 +34,8 @@ const checkedFields = ref(BINGO_CHECKED_FIELDS);
 
 const checkHandler = (fieldId: string) => {
   console.log(fieldId);
-  checkedFields.value[fieldId as keyof BingoValues] =
-    !checkedFields.value[fieldId as keyof BingoValues];
+  checkedFields.value[fieldId as keyof Omit_id] =
+    !checkedFields.value[fieldId as keyof Omit_id];
 };
 
 // transforming values

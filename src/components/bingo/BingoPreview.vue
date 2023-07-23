@@ -13,9 +13,6 @@ import BingoColors from '../../interfaces/BingoColors';
 
 const formValues = inject('formValues') as BingoValues;
 const formColors = inject('formColors') as BingoColors;
-
-const { _id, ...values } = formValues;
-console.log(values);
 </script>
 
 <style scoped lang="scss">
