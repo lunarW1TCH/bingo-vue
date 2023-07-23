@@ -3,7 +3,6 @@
     <div v-if="bingoValues && bingoColors">
       <bingo-preview></bingo-preview>
     </div>
-    <!-- <router-link to="/">Play</router-link> -->
     <button @click="playHandler">Play</button>
     <p v-if="error">{{ error }}</p>
   </div>
@@ -46,6 +45,7 @@ const fetchHandler = async () => {
     fetchedBingo.value = bingo;
 
     const { colors, values } = bingo;
+    // eslint-disable-next-line
     const { _id, ...filteredValues } = values;
 
     bingoValues.value = filteredValues;

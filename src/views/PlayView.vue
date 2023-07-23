@@ -40,6 +40,7 @@ const fetchHandler = async () => {
 
   const bingo = result.data.result as BingoDB;
   const { colors, values } = bingo;
+  // eslint-disable-next-line
   const { _id, ...filteredValues } = values;
 
   fetchedBingo.value = bingo;

@@ -16,7 +16,6 @@
 import { ref } from 'vue';
 import { BingoValues, BINGO_CHECKED_FIELDS } from '@/interfaces/Bingo';
 import { arrayMoveEl, shuffleArray } from '@/helpers/helpers';
-import { onBeforeRouteLeave } from 'vue-router';
 
 type Omit_id = Omit<BingoValues, '_id'>;
 

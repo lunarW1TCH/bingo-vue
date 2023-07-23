@@ -8,8 +8,6 @@
 <script setup lang="ts">
 // TODO: add animation for route change
 
-// TODO: put bingovalues into Values field
-
 import TheNavigation from './components/ui/TheNavigation.vue';
 </script>
 
