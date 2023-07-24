@@ -5,9 +5,8 @@
       :key="bingo._id"
       :bingo="bingo"
     ></bingo-item>
+    <span v-if="error">{{ error }}</span>
   </div>
-
-  <!-- <div>{{ page }} {{ pages }}</div> -->
 </template>
 
 <script setup lang="ts">
@@ -24,10 +23,12 @@
   const page = route.query.page || 1;
 
   const bingos = ref<BingoDB[] | null>(null);
-  // const pages = ref(1);
+  const error = ref('');
 
   const fetchHandler = async () => {
     try {
+      error.value = '';
+
       const response = await axios.get(
         `http://localhost:8080/search?name=${name ? name : ''}&page=${
           page ? page : 1
@@ -38,8 +39,9 @@
 
       bingos.value = data;
       emit('setPages', numPages);
-    } catch (err) {
-      console.log(err);
+    } catch (_) {
+      error.value =
+        'Sorry, something went wrong, try refreshing to see if error disappears.';
     }
   };
 

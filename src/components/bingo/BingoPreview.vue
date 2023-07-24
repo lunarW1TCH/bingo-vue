@@ -40,10 +40,6 @@
     background-color: v-bind('formColors.background');
     color: v-bind('formColors.text');
     @include base.box-shadow-sharp;
-
-    &:hover {
-      scale: 110%;
-      cursor: pointer;
-    }
+    @include base.hover-bingo;
   }
 </style>

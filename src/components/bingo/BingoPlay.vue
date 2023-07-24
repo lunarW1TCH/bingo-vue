@@ -2,7 +2,7 @@
   <div v-if="transformedValues" class="container">
     <div
       class="field"
-      :class="checkedFields[keys[index] as keyof Omit_id] ? 'checked' : null"
+      :class="checkedFields[keys[index] as keyof BingoValuesOmitID] ? 'checked' : null"
       v-for="(value, index) in transformedValues"
       :key="keys[index]"
       @click="checkHandler(keys[index])"
@@ -15,14 +15,12 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
   import { useRoute } from 'vue-router';
-  import { BingoValues, BINGO_CHECKED_FIELDS } from '@/interfaces/Bingo';
+  import { BingoValuesOmitID, BINGO_CHECKED_FIELDS } from '@/interfaces/Bingo';
   import { arrayMoveEl, shuffleArray } from '@/helpers/helpers';
   import { DEFAULT_COLORS } from '@/interfaces/BingoColors';
 
-  type Omit_id = Omit<BingoValues, '_id'>;
-
   const props = defineProps<{
-    values: BingoValues;
+    values: BingoValuesOmitID;
     colors: {
       text: string;
       background: string;
@@ -40,9 +38,8 @@
   const checkedFields = ref(BINGO_CHECKED_FIELDS);
 
   const checkHandler = (fieldId: string) => {
-    console.log(fieldId);
-    checkedFields.value[fieldId as keyof Omit_id] =
-      !checkedFields.value[fieldId as keyof Omit_id];
+    checkedFields.value[fieldId as keyof BingoValuesOmitID] =
+      !checkedFields.value[fieldId as keyof BingoValuesOmitID];
   };
 
   // transforming values
@@ -60,7 +57,7 @@
 
     transformedValues.value = moved;
 
-    // reset checked fields
+    // TODO reset checked fields
     checkedFields.value = BINGO_CHECKED_FIELDS;
   };
 
@@ -89,11 +86,7 @@
     background-color: v-bind('colors.background');
     color: v-bind('colors.text');
     @include base.box-shadow-sharp;
-
-    &:hover {
-      scale: 110%;
-      cursor: pointer;
-    }
+    @include base.hover-bingo;
   }
 
   .checked {

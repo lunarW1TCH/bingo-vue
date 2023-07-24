@@ -10,6 +10,7 @@
           @input="setName"
           :value="formName"
           maxlength="40"
+          required
         />
       </div>
       <div class="containerDescription">
@@ -20,6 +21,7 @@
           id="description"
           name="description"
           maxlength="255"
+          required
         />
       </div>
       <textarea
@@ -31,6 +33,7 @@
         :value="formValues[id as keyof BingoValues]"
         maxlength="40"
         @input="setValue($event)"
+        required
       ></textarea>
       <div class="colorsContainer">
         <div>

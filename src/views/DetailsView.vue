@@ -3,15 +3,17 @@
     <div v-if="bingoValues && bingoColors">
       <bingo-preview></bingo-preview>
     </div>
-    <button @click="playHandler">Play</button>
     <p v-if="error">{{ error }}</p>
-    <label for="defaultColors">Override with default colors?</label>
-    <input
-      type="checkbox"
-      id="defaultColors"
-      name="defaultColors"
-      v-model="overrideWithDefaults"
-    />
+    <div v-else>
+      <button @click="playHandler">Play</button>
+      <label for="defaultColors">Override with default colors?</label>
+      <input
+        type="checkbox"
+        id="defaultColors"
+        name="defaultColors"
+        v-model="overrideWithDefaults"
+      />
+    </div>
   </div>
 </template>
 
@@ -55,6 +57,8 @@
 
   const fetchHandler = async () => {
     try {
+      error.value = '';
+
       const result = await axios.get(`http://localhost:8080/id?id=${bingoId}`);
 
       const bingo = result.data.result;
@@ -66,7 +70,7 @@
 
       bingoValues.value = filteredValues;
       bingoColors.value = colors;
-    } catch (err) {
+    } catch (_) {
       error.value = 'No bingo with that ID';
     }
   };

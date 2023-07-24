@@ -27,33 +27,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  @keyframes fade {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(1500px);
-    }
-  }
+  @include base.fade;
 
   .v-enter-active {
-    animation: fade 0.3s ease-in-out reverse;
+    animation: fade 0.2s ease-in-out reverse;
   }
 
   .v-leave-active {
-    animation: fade 0.3s ease-in-out;
+    animation: fade 0.2s ease-in-out;
   }
 </style>

@@ -27,6 +27,8 @@ export interface BingoValues {
   _id?: string;
 }
 
+export type BingoValuesOmitID = Omit<BingoValues, '_id'>;
+
 export interface BingoDB {
   name: string;
   createdAt?: string;

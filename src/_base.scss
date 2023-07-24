@@ -44,7 +44,7 @@ $gray900: #1b1b1b;
 // $font-header: 28px;
 // $font-input: 16px;
 
-// shadows, to be determined
+// mixins
 
 @mixin box-shadow-sharp {
   -webkit-box-shadow: 4px 4px 0px 0px $gray700;
@@ -52,4 +52,37 @@ $gray900: #1b1b1b;
   box-shadow: 4px 4px 0px 0px $gray700;
 }
 
-// animations and keyframes, to be determined
+@mixin hover-bingo {
+  &:hover {
+    scale: 110%;
+    cursor: pointer;
+  }
+}
+
+// keyframes
+
+@mixin fade {
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin slide {
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(1500px);
+    }
+  }
+}

@@ -1,5 +1,7 @@
 <template>
   <div v-if="fetchedBingos">
+    <h2>Latest Bingos</h2>
+    <h3 v-if="error">{{ error }}</h3>
     <bingo-item
       v-for="bingo in fetchedBingos"
       :bingo="bingo"
@@ -16,15 +18,19 @@
   import BingoItem from '../bingo/BingoItem.vue';
 
   const fetchedBingos = ref<BingoDB[] | null>(null);
+  const error = ref('');
 
   const fetchHandler = async () => {
     try {
+      error.value = '';
+
       const response = await axios.get('http://localhost:8080/all');
       const bingos = response.data.results as BingoDB[];
       console.log(bingos);
       fetchedBingos.value = bingos;
-    } catch (err) {
-      console.log(err);
+    } catch (_) {
+      error.value =
+        'Sorry, retrieving latest bingos failed, please try again later.';
     }
   };
 
