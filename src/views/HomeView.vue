@@ -6,5 +6,5 @@
 </template>
 
 <script setup lang="ts">
-import LatestBingos from '../components/home/LatestBingos.vue';
+  import LatestBingos from '../components/home/LatestBingos.vue';
 </script>

@@ -1,10 +1,10 @@
 <template>
-  <button>
+  <div>
     <slot></slot>
-  </button>
+  </div>
 </template>
 
 <style scoped lang="scss">
-  button {
+  div {
   }
 </style>

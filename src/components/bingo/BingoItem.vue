@@ -7,56 +7,56 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import { BingoDB } from '../../interfaces/Bingo';
+  import { useRouter } from 'vue-router';
+  import { BingoDB } from '../../interfaces/Bingo';
 
-const props = defineProps<{
-  bingo: BingoDB;
-}>();
+  const props = defineProps<{
+    bingo: BingoDB;
+  }>();
 
-const router = useRouter();
+  const router = useRouter();
 
-const date = props.bingo.createdAt
-  ? new Date(props.bingo.createdAt).toUTCString()
-  : null;
+  const date = props.bingo.createdAt
+    ? new Date(props.bingo.createdAt).toUTCString()
+    : null;
 
-const onClickHandler = () => {
-  router.push({
-    name: 'details',
-    params: {
-      bingoId: props.bingo._id,
-    },
-  });
-};
+  const onClickHandler = () => {
+    router.push({
+      name: 'details',
+      params: {
+        bingoId: props.bingo._id,
+      },
+    });
+  };
 </script>
 
 <style scoped lang="scss">
-.container {
-  width: 250px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid;
-  border-color: v-bind('props.bingo.colors.border');
-  background-color: v-bind('props.bingo.colors.background');
-  word-break: break-all;
-  position: relative;
-}
+  .container {
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    border-color: v-bind('props.bingo.colors.border');
+    background-color: v-bind('props.bingo.colors.background');
+    word-break: break-all;
+    position: relative;
+  }
 
-.title {
-  width: 100%;
-  text-align: center;
-  padding: 8px;
-  background-color: white;
-}
+  .title {
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    background-color: white;
+  }
 
-.description {
-  margin: 8px;
-}
+  .description {
+    margin: 8px;
+  }
 
-.date {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+  .date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 </style>
