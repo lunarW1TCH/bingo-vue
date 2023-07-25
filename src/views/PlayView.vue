@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!bingoValues || !bingoColors">Loading...</div>
-  <div v-else>
+  <div class="pageRoot" v-if="!bingoValues || !bingoColors">Loading...</div>
+  <div class="pageRoot" v-else>
     <bingo-play :colors="bingoColors" :values="bingoValues"></bingo-play>
     <base-dialog @close="cancelLeave" :open="dialogIsOpen">
       <p>If you leave your changes will be lost!</p>

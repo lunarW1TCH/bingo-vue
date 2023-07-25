@@ -5,6 +5,7 @@
       :key="bingo._id"
       :bingo="bingo"
     ></bingo-item>
+    <base-spinner v-if="isLoading"></base-spinner>
     <span v-if="error">{{ error }}</span>
   </div>
 </template>
@@ -15,6 +16,7 @@
   import { useRoute } from 'vue-router';
   import { BingoDB } from '../../interfaces/Bingo';
   import BingoItem from '../bingo/BingoItem.vue';
+  import BaseSpinner from '../ui/BaseSpinner.vue';
 
   const emit = defineEmits(['setPages']);
 
@@ -24,10 +26,12 @@
 
   const bingos = ref<BingoDB[] | null>(null);
   const error = ref('');
+  const isLoading = ref(false);
 
   const fetchHandler = async () => {
     try {
       error.value = '';
+      isLoading.value = true;
 
       const response = await axios.get(
         `http://localhost:8080/search?name=${name ? name : ''}&page=${
@@ -39,11 +43,20 @@
 
       bingos.value = data;
       emit('setPages', numPages);
+      isLoading.value = false;
     } catch (_) {
       error.value =
         'Sorry, something went wrong, try refreshing to see if error disappears.';
+      isLoading.value = false;
     }
   };
 
   fetchHandler();
 </script>
+
+<style scoped lang="scss">
+  div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>

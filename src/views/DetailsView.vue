@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="pageRoot">
     <div v-if="bingoValues && bingoColors">
       <bingo-preview></bingo-preview>
     </div>
     <p v-if="error">{{ error }}</p>
     <div v-else>
-      <button @click="playHandler">Play</button>
+      <base-button @click="playHandler">Play</base-button>
       <label for="defaultColors">Override with default colors?</label>
       <input
         type="checkbox"
@@ -24,6 +24,7 @@
   import BingoPreview from '@/components/bingo/BingoPreview.vue';
   import { BingoDB, BingoValues } from '@/interfaces/Bingo';
   import BingoColors, { DEFAULT_COLORS } from '@/interfaces/BingoColors';
+  import BaseButton from '@/components/ui/BaseButton.vue';
 
   const route = useRoute();
   const router = useRouter();

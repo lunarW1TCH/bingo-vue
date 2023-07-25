@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pageRoot">
     <h1>Home</h1>
     <latest-bingos></latest-bingos>
   </div>

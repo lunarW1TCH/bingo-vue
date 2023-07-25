@@ -17,7 +17,7 @@
   const router = useRouter();
 
   const date = props.bingo.createdAt
-    ? new Date(props.bingo.createdAt).toUTCString()
+    ? new Date(props.bingo.createdAt).toLocaleString()
     : null;
 
   const onClickHandler = () => {
@@ -31,16 +31,26 @@
 </script>
 
 <style scoped lang="scss">
+  @use '/src/_base.scss' as base;
   .container {
     width: 250px;
     height: 300px;
+    margin: 8px;
     display: flex;
+    position: relative;
     flex-direction: column;
     border: 2px solid;
+    justify-content: space-around;
     border-color: v-bind('props.bingo.colors.border');
-    background-color: v-bind('props.bingo.colors.background');
+    /* background-color: v-bind('props.bingo.colors.background'); */
     word-break: break-all;
     position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include base.box-shadow-sharp;
   }
 
   .title {
@@ -48,15 +58,20 @@
     text-align: center;
     padding: 8px;
     background-color: white;
+    position: absolute;
+    top: 0;
   }
 
   .description {
     margin: 8px;
+    text-align: center;
   }
 
   .date {
     position: absolute;
     bottom: 0;
     right: 0;
+    font-style: italic;
+    color: base.$gray700;
   }
 </style>

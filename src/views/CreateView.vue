@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="pageRoot">
     <h1>Create</h1>
-    <bingo-form></bingo-form>
-    <bingo-preview></bingo-preview>
-    <button @click="createBingoHandler">Create</button>
+    <div id="bingoContainers">
+      <bingo-form class="bingoContainer"></bingo-form>
+      <bingo-preview class="bingoContainer"></bingo-preview>
+    </div>
+    <base-button id="createBtn" @click="createBingoHandler">Create</base-button>
     <span v-if="isLoading">TODO SPINNER</span>
     <span v-if="error">{{ error }}</span>
   </div>
@@ -18,6 +20,7 @@
   import BingoColors, { DEFAULT_COLORS } from '../interfaces/BingoColors';
   import BingoForm from '../components/bingo/BingoForm.vue';
   import BingoPreview from '../components/bingo/BingoPreview.vue';
+  import BaseButton from '@/components/ui/BaseButton.vue';
 
   const router = useRouter();
 
@@ -84,3 +87,16 @@
     }
   };
 </script>
+
+<style scoped lang="scss">
+  #bingoContainers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .bingoContainer {
+    margin: 24px;
+  }
+</style>

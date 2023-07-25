@@ -38,6 +38,12 @@ $gray700: #4d4d4d;
 $gray800: #353535;
 $gray900: #1b1b1b;
 
+// media queries
+
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+
 // font sizes, to be determined
 // $font-base: 20px;
 // $font-h1: 68px;
@@ -45,7 +51,6 @@ $gray900: #1b1b1b;
 // $font-input: 16px;
 
 // mixins
-
 @mixin box-shadow-sharp {
   -webkit-box-shadow: 4px 4px 0px 0px $gray700;
   -moz-box-shadow: 4px 4px 0px 0px $gray700;
@@ -56,6 +61,7 @@ $gray900: #1b1b1b;
   &:hover {
     scale: 110%;
     cursor: pointer;
+    transition: scale 0.1s ease-in-out;
   }
 }
 

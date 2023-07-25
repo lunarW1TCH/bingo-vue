@@ -72,6 +72,7 @@
     width: 300px;
     display: flex;
     justify-content: space-evenly;
+    margin-top: 16px;
   }
 
   span {

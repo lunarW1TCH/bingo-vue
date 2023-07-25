@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pageRoot">
     <h1>Search</h1>
     <search-form></search-form>
     <search-results @set-pages="setPages"></search-results>
@@ -11,6 +11,7 @@
   import SearchForm from '../components/search/SearchForm.vue';
   import SearchResults from '../components/search/SearchResults.vue';
   import SearchPagination from '../components/search/SearchPagination.vue';
+
   import { ref } from 'vue';
 
   const pages = ref(1);
