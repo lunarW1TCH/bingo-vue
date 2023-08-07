@@ -1,24 +1,3 @@
-# app
+A fullstack TypeScript app! Users can create bingos, share them with others and play together! App is almost complete, I just need to work a little bit more on styling before publishing it.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+TypeScript, Vue, SCSS, NodeJS, ExpressJS, MongoDB, Mongoose
